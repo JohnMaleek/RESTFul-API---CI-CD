@@ -19,14 +19,14 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 echo 'Building Docker image...'
-                sh 'docker build -t $DOCKER_IMAGE:latest .'
+                sh 'docker build -t johngeo007/myapi:latest .'
             }
         }
 
         stage('Test API') {
             steps {
                 echo 'Testing the API...'
-                sh 'docker run -d -p 5001:8080 --name test-api $DOCKER_IMAGE:latest'
+                sh 'docker run -d -p 5001:8080 --name test-api johngeo007/myapi:latest'
                 sh 'sleep 10'
                 sh 'curl -f http://localhost:5001/users || exit 1'
                 sh 'docker stop test-api'
