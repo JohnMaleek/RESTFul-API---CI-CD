@@ -12,7 +12,7 @@ pipeline {
             steps {
                 echo 'Checking out code...'
                 git branch: 'main',
-                    url: 'https://github.com/YOUR_USERNAME/Project1.git'
+                    url: 'https://github.com/JohnMaleek/RESTFul-API---CI-CD'
             }
         }
 
