@@ -41,14 +41,12 @@ pipeline {
                 sh 'docker push $DOCKER_IMAGE:latest'
             }
         }
-    }
-	stage('Deploy to Cloud Run') {
-	    steps {
+
+        stage('Deploy to Cloud Run') {
+            steps {
                 echo 'Deploying to GCP Cloud RUN...'
                 sh 'gcloud run deploy Project1 --image docker.io/myapi:latest --platform managed --region europe-west1 --allow-unauthenticated'
-	    }
-
-	 }
-     }
+            }
+        }
+    }
 }
-
